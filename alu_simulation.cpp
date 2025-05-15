@@ -63,43 +63,56 @@ int main() {
     ALU alu;
     int a, b;
     int choice;
+    
+    while (true) {
+        cout << "\nChoose operation:\n";
+        cout << "1. Addition (+)\n";
+        cout << "2. Subtraction (-)\n";
+        cout << "3. AND (&)\n";
+        cout << "4. OR (|)\n";
+        cout << "5. NOT (~) [applied to the first number only]\n";
+        cout << "6. Exit application\n";
+        cout << "Enter choice: ";
+        cin >> choice;
 
-    cout << "Enter first number: ";
-    cin >> a;
+        if (choice == 6) {
+            cout << "----------------------------------\n";
+            cout << "Application closed.\n";
+            break;
+        }
 
-    cout << "\nChoose operation:\n";
-    cout << "1. Addition (+)\n";
-    cout << "2. Subtraction (-)\n";
-    cout << "3. AND (&)\n";
-    cout << "4. OR (|)\n";
-    cout << "5. NOT (~) [applied to the first number only]\n";
-    cout << "Enter choice: ";
-    cin >> choice;
+        cout << "Enter first number: ";
+        cin >> a;
 
-    if (choice != 5) {
-        cout << "Enter second number: ";
-        cin >> b;
-    }
+        if (choice != 5) {
+            cout << "Enter second number: ";
+            cin >> b;
+        }
 
-    cout << "----------------------------------\n";
-    switch (choice) {
-        case 1:
-            alu.add(a, b);
-            break;
-        case 2:
-            alu.subtract(a, b);
-            break;
-        case 3:
-            alu.bitwiseAND(a, b);
-            break;
-        case 4:
-            alu.bitwiseOR(a, b);
-            break;
-        case 5:
-            alu.bitwiseNOT(a);
-            break;
-        default:
-            cout << "Invalid choice." << endl;
+        cout << "----------------------------------\n";
+        switch (choice) {
+            case 1:
+                alu.add(a, b);
+                break;
+            case 2:
+                alu.subtract(a, b);
+                break;
+            case 3:
+                alu.bitwiseAND(a, b);
+                break;
+            case 4:
+                alu.bitwiseOR(a, b);
+                break;
+            case 5:
+                alu.bitwiseNOT(a);
+                break;
+            default:
+                cout << "Invalid choice." << endl;
+        }
+
+        cout << "\nPress Enter to continue...";
+        cin.ignore();
+        cin.get(); 
     }
 
     return 0;
